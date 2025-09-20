@@ -11,12 +11,18 @@ const app = express();
 const port = process.env.PORT || 8000;
 
 app.use(cors({
-   origin: [
-    "http://localhost:5173", // Local development
-    "https://movie-app-pi-lovat.vercel.app" // Vercel frontend
-  ],  
-  credentials: true               
+  origin: [
+    "http://localhost:5173",
+    "https://movie-app-pi-lovat.vercel.app"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
 }));
+
+// Handle OPTIONS requests globally
+app.options("*", cors());
+
 app.use(express.json());
 
 // MongoDB connection
