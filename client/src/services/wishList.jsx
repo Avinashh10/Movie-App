@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8000/api/wishlist"; 
+const API_URL = "https://movie-app-1-08bw.onrender.com/api/wishlist"; 
 
 const header = () => ({
   headers: {

@@ -11,7 +11,10 @@ const app = express();
 const port = process.env.PORT || 8000;
 
 app.use(cors({
-  origin: "http://localhost:5173",  
+   origin: [
+    "http://localhost:5173", // Local development
+    "https://movie-app-pi-lovat.vercel.app" // Vercel frontend
+  ],  
   credentials: true               
 }));
 app.use(express.json());

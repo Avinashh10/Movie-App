@@ -15,7 +15,7 @@ export default function Auth() {
 
   const handleSignup = async () => {
     try {
-      const res = await axios.post("http://localhost:8000/api/auth/register", formData);
+      const res = await axios.post("https://movie-app-1-08bw.onrender.com/api/auth/register", formData);
       login(res.data.user, res.data.token);
       navigate("/");
     } catch (err) {
@@ -25,7 +25,7 @@ export default function Auth() {
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post("http://localhost:8000/api/auth/login", {
+      const res = await axios.post("https://movie-app-1-08bw.onrender.com/api/auth/login", {
         email: formData.email,
         password: formData.password,
       });
