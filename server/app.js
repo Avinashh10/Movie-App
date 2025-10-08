@@ -20,7 +20,7 @@ app.use(cors({
   credentials: true
 }));
 
-// Handle OPTIONS requests globally
+
 app.options("*", cors());
 
 app.use(express.json());
