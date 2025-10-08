@@ -4,15 +4,9 @@ A full-stack web application that allows users to browse movies, add them to a p
 
 ---
 
-## Table of Contents
+## 🔗 Live Demo
 
-1. [Features](#features)  
-2. [Technologies](#technologies)  
-3. [Setup and Installation](#setup-and-installation)  
-4. [Database Setup](#database-setup)  
-5. [Environment Variables](#environment-variables)  
-6. [API Documentation](#api-documentation)  
-7. [Additional Notes](#additional-notes)  
+👉 **Visit the Live App:** [movie-app-pi-lovat.vercel.app](https://movie-app-pi-lovat.vercel.app/)
 
 ---
 
