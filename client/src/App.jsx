@@ -3,6 +3,7 @@ import Home from "./pages/home";
 import Detail from "./pages/detail";
 import Auth from "./pages/auth";
 import Wishlist from "./pages/Watchlist";
+import SearchResult from "./pages/SearchResults";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
  
         />
         <Route path="/wishlist" element={<Wishlist />} />
+             <Route path="/search" element={<SearchResult />} />
 
 
     </Routes>
