@@ -18,7 +18,10 @@ exports.registerUser = async (req, res) => {
     const hashed = await bcrypt.hash(password, 10);
     const user = await User.create({ name, email, password: hashed });
 
-    res.status(201).json({ message: 'User registered successfully', user });
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    const safeUser = { id: user._id, name: user.name, email: user.email };
+
+    res.status(201).json({ message: 'User registered successfully', token, user: safeUser });
   } catch (err) {
     console.error('Register error:', err);
     res.status(500).json({ error: 'Internal Server Error' });
@@ -37,8 +40,9 @@ exports.loginUser = async (req, res) => {
 
     // Generate JWT
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    const safeUser = { id: user._id, name: user.name, email: user.email };
 
-    res.status(200).json({ message: 'Login successful', token });
+    res.status(200).json({ message: 'Login successful', token, user: safeUser });
   } catch (err) {
     console.error('Login error:', err);
     res.status(500).json({ error: 'Internal Server Error' });

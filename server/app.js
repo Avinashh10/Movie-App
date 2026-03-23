@@ -5,6 +5,7 @@ const cors = require("cors");
 
 const authRoutes = require("./routes/authRoutes");
 const wishlistRoutes = require("./routes/wishListRoutes");
+const reviewRoutes = require("./routes/reviewRoutes");
 
 const app = express();
 const port = process.env.PORT || 8000;
@@ -40,6 +41,7 @@ app.get("/", (req, res) => {
 // ✅ API routes
 app.use("/api/auth", authRoutes);
 app.use("/api/wishlist", wishlistRoutes);
+app.use("/", reviewRoutes);
 
 // ✅ 404 fallback for unknown API routes (optional)
 app.use((req, res) => {
