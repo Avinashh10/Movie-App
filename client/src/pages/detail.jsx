@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Rating from "../components/MovieRating.jsx";
+import Comment from "../components/CommentSection.jsx";
 
 const Detail = () => {
   const { id } = useParams();
@@ -46,10 +48,12 @@ const Detail = () => {
           <h2 className="text-xl italic text-gray-300">{movie.tagline}</h2>
 
           <div className="flex items-center gap-6 text-lg">
-            <span>⭐ {movie.vote_average.toFixed(1)}</span>
-            <span>({movie.vote_count} votes)</span>
             <span>{movie.runtime} mins</span>
             <span>{movie.release_date}</span>
+          </div>
+
+          <div className="mt-4">
+            <Rating movieId={movie.id} />
           </div>
 
           {/* Genres */}
@@ -72,6 +76,7 @@ const Detail = () => {
           </div>
         </div>
       </div>
+      <Comment movieId={movie.id} />
     </div>
   );
 };

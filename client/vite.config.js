@@ -6,4 +6,13 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(),
     tailwindcss()],
+  server: {
+    proxy: {
+      // Forward same-origin /comments to the API (see CommentSection getApiOrigin in dev)
+      "/comments": {
+        target: "http://localhost:8000",
+        changeOrigin: true,
+      },
+    },
+  },
 })
